@@ -50,7 +50,7 @@ class Problem(models.Model):
 
     author = models.ForeignKey('Coder', null = True)
 
-    def __unicode__(self):
+    def __str__(self):
         return self.code
 
 
@@ -60,7 +60,7 @@ class TestCase(models.Model):
     input_file = models.FileField(upload_to=in_upload_path)
     output_file = models.FileField(upload_to=out_upload_path)
 
-    def __unicode__(self):
+    def __str__(self):
         return self.problem.code
 
 LANGUAGES = (
