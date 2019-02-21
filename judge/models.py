@@ -16,13 +16,13 @@ def out_upload_path(instance, filename):
 # Model for users
 class Coder(models.Model):
     user = models.OneToOneField(User)
-    link = models.URLField()
+    link = models.SlugField(unique=True)
     score = models.DecimalField(default = 0, decimal_places = 3, max_digits = 100)
     rank = models.IntegerField(default = -1)
     problems_tried = models.ForeignKey('Problem', null = True, related_name = "problems_tried")
     problems_ac = models.ForeignKey('Problem', null = True, related_name = "problems_ac")
 
-    def __unicode__(self):
+    def __str__(self):
         return self.user.username
 
 
